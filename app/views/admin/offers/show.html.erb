@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Edit Offer</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+      <%= link_to new_admin_offer_path, :class => "btn btn-success" do %>
+        <span data-feather="plus-circle"></span> New Offer
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="container-form col-sm-5">
+			<p id="notice"><%= notice %></p>
+
+			<p>
+			  <strong>Name:</strong>
+			  <%= @offer.advertiser_name %>
+			</p>
+
+			<p>
+			  <strong>Url:</strong>
+			  <%= @offer.url %>
+			</p>
+
+			<p>
+			  <strong>Description:</strong>
+			  <%= @offer.description %>
+			</p>
+
+			<p>
+			  <strong>Start at:</strong>
+			  <%= @offer.starts_at %>
+			</p>
+
+			<p>
+			  <strong>Ends at:</strong>
+			  <%= @offer.ends_at %>
+			</p>
+
+			<p>
+			  <strong>premium:</strong>
+			  <%= @offer.premium? %>
+			</p>
+
+			<p>
+			  <strong>Status:</strong>
+			  <%= @offer.enabled? ? 'Enable' : 'Disable' %>
+			</p>
+
+			<br><br>
+			
+			<%= link_to admin_offers_path, :class => "btn btn-default" do %> 
+				<i class="fa fa-arrow-left"></i> Back
+			<% end %>
+			<%= link_to edit_admin_offer_path(@offer), :class => "btn btn-success" do %> 
+				<i class="fa fa-edit"></i> Edit
+			<% end %>
+		</div>
+	</div>
+</div>

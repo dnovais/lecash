@@ -1,0 +1,35 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Url</th>
+      <th scope="col">Status</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <th scope="row"><%= offer.id %></th>
+        <td><%= offer.advertiser_name %></td>
+        <td><%= offer.url %></td>
+        <td><%= offer.enabled? ? 'Enable' : 'Disable' %></td>
+        <td>
+          <%= link_to switch_state_admin_offer_path(offer), method: :post, :class => "btn btn-#{ offer.enabled? ? 'warning' : 'info' }" do %>
+            <span data-feather="tool"></span> <%= offer.enabled? ? 'Disable' : 'Enable' %>
+          <% end %>
+          <%= link_to edit_admin_offer_path(offer), :class => "btn btn-primary" do %>
+          <span data-feather="edit"></span> Edit
+          <% end %>
+          <%= link_to admin_offer_path(offer), method: :delete, data: { confirm: "Are you sure you want to remove?" }, :class => "btn btn-danger" do %>
+          <span data-feather="trash"></span> Delete
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pages">
+  <%= will_paginate @offers, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
