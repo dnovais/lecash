@@ -28,9 +28,24 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# A library for adding finite state machines to Ruby classes.
+gem 'aasm'
+
+# This gem adds the capability of validating URLs to ActiveRecord and ActiveModel.
+gem "validate_url"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # rspec-rails brings the RSpec testing framework
+  gem 'rspec-rails', '~> 4.0.1'
+
+  # This gem is a port of Perl's Data::Faker library that generates fake data.
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+  # This gem is a factory for our resources.
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -48,6 +63,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality that,
+  # if written by hand, would be much longer, more complex, and error-prone.
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
