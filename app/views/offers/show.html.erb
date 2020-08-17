@@ -1,0 +1,43 @@
+<div class="card text-center">
+  <div class="card-header">
+    <%= @offer.advertiser_name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title badge badge-danger">Up to 26.9% Turbo Cashback</h5>
+    <p class="card-text"><%= @offer.description %></p>
+    <%= link_to @offer.url, :class => "btn btn-success" do %>
+      <span data-feather="shopping-cart"></span> Shop now!
+    <% end %>
+  </div>
+  <div class="card-footer text-muted" id="countdown">
+    <%= @offer.ends_at.strftime("Ends at: %d/%m/%Y at %I:%M%p") %>
+  </div>
+</div>
+
+<script>
+  function countdownTimer() {
+    const difference = +new Date("<%= @offer.ends_at %>") - +new Date();
+    let remaining = "Time's up!";
+
+    if (difference > 0) {
+      const parts = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
+      };
+
+      remaining = Object.keys(parts)
+        .map(part => {
+          if (!parts[part]) return;
+          return `${parts[part]} ${part}`;
+        })
+        .join(" ");
+    }
+
+    document.getElementById("countdown").innerHTML = remaining;
+  }
+
+  countdownTimer();
+  setInterval(countdownTimer, 1000);
+</script>
