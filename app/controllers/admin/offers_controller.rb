@@ -2,7 +2,7 @@ class Admin::OffersController < Admin::ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :switch_state, :destroy]
 
   def index
-    @offers = Offer.all
+    @offers = Offer.ordered_premium
     @offers = @offers.order(:id).paginate(:page => params[:page], :per_page => 10)
   end
 

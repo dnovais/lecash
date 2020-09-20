@@ -5,6 +5,10 @@ class Offer < ApplicationRecord
   validates :advertiser_name, uniqueness: true
   validates :url, url: true
   validates :description, length: { maximum: 500 }
+  
+  scope :ordered_premium, -> { 
+    order(premium: :desc) 
+  }
 
   aasm :column => 'state' do
     state :disabled, initial: true
