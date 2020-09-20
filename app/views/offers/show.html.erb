@@ -31,11 +31,14 @@
         .map(part => {
           if (!parts[part]) return;
           return `${parts[part]} ${part}`;
-        })
-        .join(" ");
+        }).join(" ");
     }
 
-    document.getElementById("countdown").innerHTML = remaining;
+    countdown = document.getElementById("countdown");
+
+    if(countdown){
+      countdown.innerHTML = remaining;
+    }
   }
 
   countdownTimer();

@@ -43,7 +43,7 @@ RSpec.describe Offer, type: :model do
     end
   end
 
-  describe '.ready_to_start?' do
+  describe '#ready_to_start?' do
     context 'when ends_at is not nil' do
       let(:offer) { build_stubbed(:offer) }
 
@@ -69,7 +69,7 @@ RSpec.describe Offer, type: :model do
     end
   end
 
-  describe '.finished?' do
+  describe '#finished?' do
     context 'when not finished' do
       let(:offer) { build_stubbed(:offer, :started) }
 
@@ -87,7 +87,7 @@ RSpec.describe Offer, type: :model do
     end
   end
 
-  describe '.not_expires?' do
+  describe '#not_expires?' do
     let(:offer) { build_stubbed(:offer, :not_expires) }
 
     it 'ends_at is nil' do

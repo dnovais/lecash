@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   before_action :set_offer, only: :show
 
   def index
-    @offers = Offer.all
+    @offers = Offer.enabled.ordered_premium
   end
 
   def show; end
