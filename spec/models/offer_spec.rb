@@ -48,11 +48,11 @@ RSpec.describe Offer, type: :model do
       let(:offer) { build_stubbed(:offer) }
 
       it 'starts_at <= today' do
-        expect(offer.starts_at).to be <= Time.zone.now
+        expect(offer.starts_at).to be <= DateTime.now
       end
 
       it 'ends_at >= today' do
-        expect(offer.ends_at).to be >= Time.zone.now
+        expect(offer.ends_at).to be >= DateTime.now
       end
     end
 
@@ -60,7 +60,7 @@ RSpec.describe Offer, type: :model do
       let(:offer) { build_stubbed(:offer, :not_expires) }
 
       it 'starts_at <= today' do
-        expect(offer.starts_at).to be <= Time.zone.now
+        expect(offer.starts_at).to be <= DateTime.now
       end
 
       it 'ends_at is nil' do
