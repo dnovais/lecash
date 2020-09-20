@@ -13,7 +13,7 @@
       <tr>
         <th scope="row"><%= offer.id %></th>
         <td><%= offer.advertiser_name %></td>
-        <td><%= offer.url %></td>
+        <td><%= truncate(offer.url) %></td>
         <td><%= offer.enabled? ? 'Enable' : 'Disable' %></td>
         <td>
           <%= link_to switch_state_admin_offer_path(offer), method: :post, :class => "btn btn-#{ offer.enabled? ? 'warning' : 'info' }" do %>
