@@ -1,6 +1,8 @@
 # $lecash
 
 Cashback platform where members get cash rewards.
+**Site:** https://lecash.herokuapp.com
+**Admin:** https://lecash.herokuapp.com/admin
 
 ## About the project
 A small web application that displays offers to users. For example, Walmart, which is one of our advertisers has many active offers (10% discount on clothes, 20% discount on car parts, etc).
