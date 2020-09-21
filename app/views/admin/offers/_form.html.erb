@@ -36,6 +36,11 @@
     <%= form.text_field :ends_at, id: :offer_ends_at, class: 'form-control' %>
   </div>
 
+  <div class="form-check">
+    <%= form.check_box :premium, id: :offer_premium, class: 'form-check-input' %>
+    <%= form.label :premium %>
+  </div>  
+
   <div class="actions">
 	<%= link_to admin_offers_path, :class => "btn btn-default" do %>
 		<i class="fa fa-arrow-left"></i> Back
